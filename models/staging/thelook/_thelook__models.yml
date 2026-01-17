@@ -1,0 +1,32 @@
+version: 2
+
+models:
+  - name: stg_thelook__orders
+    description: "Cleaned and standardized orders from TheLook e-commerce"
+    columns:
+      - name: order_id
+        description: "Unique identifier for each order"
+        tests:
+          - unique
+          - not_null
+      
+      - name: user_id
+        description: "Foreign key to users"
+        tests:
+          - not_null
+      
+      - name: order_status
+        description: "Current status of the order"
+        tests:
+          - accepted_values:
+              values: ['Complete', 'Cancelled', 'Returned', 'Processing', 'Shipped']
+      
+      - name: order_created_at
+        description: "Timestamp when order was created"
+        tests:
+          - not_null
+      
+      - name: number_of_items
+        description: "Number of items in the order"
+        tests:
+          - not_null
