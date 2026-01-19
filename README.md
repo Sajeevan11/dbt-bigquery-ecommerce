@@ -24,7 +24,7 @@ Marts Layer (business logic, aggregations)
 ```
 ### Lineage Graph
 
-![dbt Lineage Graph](screenshots/lineage_graph.png)
+<img width="1390" height="571" alt="image" src="https://github.com/user-attachments/assets/b0d800fa-2499-4e7d-9e5e-cc0a4aa3bc11" />
 
 *Visual representation of data flow from sources to marts*
 
