@@ -8,7 +8,7 @@ renamed as (
     id as product_id, 
     coalesce(name, 'Unknown Product') as product_name, 
     category as product_category,
-    brand as product_brand,
+    coalesce(brand, 'Unknown Brand') as product_brand,
     retail_price as product_price
 
     from source

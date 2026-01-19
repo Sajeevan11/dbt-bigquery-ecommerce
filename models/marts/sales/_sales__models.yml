@@ -41,9 +41,26 @@ models:
               
   - name: mart_user_behavior
     description: |
-      Comprehensive user behavior analysis combining demographics and order metrics.
-      Includes user segmentation by age, order activity classification, and complete
-      order statistics. Uses LEFT JOIN to include all users, even those who never ordered.
+      Product performance analysis aggregating order metrics by product.
+      **Business purpose:**
+      Enables product managers to identify top/underperforming products,
+      analyze completion rates, and make data-driven inventory decisions.
+      
+      **Methodology:**
+      - LEFT JOIN from products to preserve all products (even those never ordered)
+      - Aggregates order_items to count total orders per product
+      - Filters completed orders using order status
+      
+      **Metrics included:**
+      - total_orders: Count of all orders (0 for products never ordered)
+      - completed_orders: Count of successfully completed orders
+      - avg_price: Average retail price of the product
+      
+      **Known limitations:**
+      - Products with NULL names show as 'Unknown Product' (2 products)
+      - Products with NULL brands show as 'Unknown Brand' (24 products)
+      
+      **Grain:** One row per product
     columns:
       - name: user_id
         description: "Unique user identifier"
@@ -91,7 +108,7 @@ models:
         tests:
           - unique
           - not_null
-          
+
       - name: product_name
         description: "Product name"
         tests:
