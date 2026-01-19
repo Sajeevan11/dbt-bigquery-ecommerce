@@ -81,3 +81,28 @@ models:
       
       - name: completion_rate
         description: "Percentage of completed orders (0-100)"
+
+  - name : mart_product_performance
+    description: |
+      Product performance metrics with order statistics
+    columns:
+      - name: product_id
+        description: "Unique product identifier"
+        tests:
+          - unique
+          - not_null
+          
+      - name: product_name
+        description: "Product name"
+        tests:
+          - not_null
+      
+      - name: total_orders
+        description: "Total number of orders for this product"
+        tests:
+          - not_null
+      
+      - name: completed_orders
+        description: "Number of completed orders"
+        tests:
+          - not_null
