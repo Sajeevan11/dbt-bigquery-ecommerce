@@ -22,6 +22,11 @@ Staging Layer (cleaning, renaming)
     ↓
 Marts Layer (business logic, aggregations)
 ```
+### Lineage Graph
+
+![dbt Lineage Graph](screenshots/lineage_graph.png)
+
+*Visual representation of data flow from sources to marts*
 
 ### Models Overview
 
