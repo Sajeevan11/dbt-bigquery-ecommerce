@@ -40,3 +40,43 @@ sources:
             description: "User's country"
           - name: created_at
             description: "Timestamp when user account was created"
+
+      - name: products
+        description: "Products catalog from TheLook e-commerce"
+        columns:
+            - name: id
+              description: "Unique identifier for each products"
+            - name: name
+              description: "Product's name"
+            - name: category
+              description: "Product's category"
+            - name: brand
+              description: "Product's brand"
+            - name: retail_price
+              description: "Product's retail price"
+
+      - name: order_items
+        description: "Order line items linking orders to products with pricing and delivery details"
+        columns:
+            - name : id
+              description: "Unique identifier for each order_items"
+            - name : order_id
+              description: "Foreign key to orders table"
+            - name : user_id
+              description: "Foreign key to users table"
+            - name : product_id
+              description: "Foreign key to products table"
+            - name : inventory_item_id
+              description: "Foreign key to inventory items table"
+            - name : status
+              description: "Order Items status"
+            - name : created_at
+              description: "Timestamp when order item was created"
+            - name : shipped_at
+              description: "Timestamp when order item was shipped"
+            - name : delivered_at
+              description: "Timestamp when order item was delivered"
+            - name : returned_at
+              description: "Timestamp when order item was returned"
+            - name : sale_price
+              description: "Order item sale price"
